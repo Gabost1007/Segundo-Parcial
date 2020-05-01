@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario parcial</title>
+	<script src="js/jspdf.js"></script>
+	<script src="js/jquery-2.1.3.js"></script>
+	<script src="js/pdfFromHTML.js"></script>
+	<script type="js/foto.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="HTMLtoPDF">
+	<form id="pago">
+		<!--Creacion de las tres capas que conforman 
+			el formulario deseado empezando por los 
+			datos de la persona
+		-->
+		<fieldset>
+		<legend>Datos de la persona</legend>
+		<ol>
+		<li>
+			<label for="nombre">Nombre</label>
+			<input id="nombre" class="minusculas" name="nombre" type="text" placeholder="Escribe tu nombre completo" required autofocus>
+		</li>
+		<li>
+			<label for="apellido">Apellidos</label>
+			<input id="apellido" class="minusculas" name="nombre" type="text" placeholder="Escribe tu apellido completo" required autofocus>
+		</li>
+		<li>
+			<label for="fecha">FechaNacimiento</label>
+			<input id="fecha" name="FechaNacimiento" type="date" name="fecha">
+		</li>
+		<li>
+			<label for="email">Email</label>
+			<input id="email" class="minusculas" name="email" type="email" placeholder="ejemplo@um.es" required>
+		</li>
+		<li>
+		<label for="telefono">Teléfono</label>
+		<input id="telefono" name="telefono" type="tel" placeholder="Ej. 4537896" required >
+		</li>
+		<li>
+		<label for="Edad">Edad</label>
+		<input id="Edad" name="Edad" type="text" readonly="readonly">
+		</li>
+		</ol>
+		</fieldset>
+		<!--Creacion de la segunda parte del formulario en el cual se 
+			piden los datos adiccionales de la persona
+		-->
+		<fieldset>
+		<legend>Datos adicionales</legend>
+		<ol>
+		<li>
+		<label for="so">Genero</label>
+		<select>
+			<option value=""selected="selected">- selecciona -</option>
+			<option value="Masculino">Masculino</option>
+			<option value="Femenino">Femenino</option>
+			<option value="Otro">Otro</option>
+		</select>
+		</li>
+		<li>
+		<label for="Direccion">Direccion</label>
+		<input id="Direccion" name="Direccion" type="text" placeholder="Direccion" required>
+		</li>
+		</ol>
+		</fieldset>
+		-------------------------------------------------
+		<fieldset>
+			<legend>Foto de la persona</legend>
+			<form method="post" action="upload.php" enctype="multipart/form-data"
+			id="uploadForm">
+			 <input type="file" name="file" id="file" />
+		</fieldset>
+		<!--Creacion de la parte final donde se crean dos botones:
+			-Boton validacion que valida que los datos sean correctos
+			-Boton descargar formulario en modo pdf
+		-->
+		-------------------------------------------------
+		<fieldset>
+			<legend>Botones de validacion y descarga</legend>
+		<button type="submit">Validar informacion</button>
+		<button type="submit" href="#" onclick="HTMLtoPDF()">Guardar formulario como PDF</button>
+		</fieldset>
+		</form>
+	</form>
+</div>
+</body>
+</html>
